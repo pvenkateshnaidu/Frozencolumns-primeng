@@ -1,0 +1,72 @@
+<h3>Checkbox Selection</h3>
+ 
+<p-table [columns]="cols" [value]="cars" [scrollable]="true"  scrollHeight="150px"  frozenWidth="150px"  [frozenColumns]="frozenCols">
+    <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+            <ng-container>
+              <col style="width: 75px">
+            </ng-container>
+            <ng-container>
+                <col style="width: 75px">
+              </ng-container>
+            <ng-container *ngFor="let col of columns">
+                <col [ngStyle]="{width: '175px'}">
+            </ng-container>
+        </colgroup>
+    </ng-template>
+    <ng-template pTemplate="frozenheader">
+        <tr>
+            <th style="width: 100px">Year</th>
+            <th style="width: 100px">Brand</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="frozenbody" let-record>
+        <tr>
+            <td>{{record.year}}</td>
+            <td>{{record.brand}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="header">
+            <tr>
+            <th>Color</th>
+            <th>Vin 3</th>
+            <th>Color 4</th>
+            <th>Color</th>
+            <th>Vin 3</th>
+            <th>Color 4</th>
+            <th>Color</th>
+            <th>Vin 3</th>
+            <th>Color 4</th>
+            <th>Color</th>
+            <th>Vin 3</th>
+            <th>Color 4</th>
+            <th>Color</th>
+            <th>Vin 3</th>
+            <th>Color 4</th>
+            <th>Color</th>
+           
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-record>
+        <tr>
+            <td>{{record.color}}</td>
+            <td>{{record.vin}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.vin}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.vin}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.vin}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.vin}}</td>
+            <td>{{record.color}}</td>
+            <td>{{record.color}}</td>
+             
+        </tr>
+    </ng-template>
+</p-table>
+ 
