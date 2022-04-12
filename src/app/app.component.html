@@ -1,6 +1,6 @@
 <h3>Checkbox Selection</h3>
  
-<p-table [columns]="cols" [value]="cars" [scrollable]="true"  scrollHeight="150px"  frozenWidth="150px"  [frozenColumns]="frozenCols">
+<p-table [columns]="cols" [value]="cars" [scrollable]="true"  dataKey="year" columnResizeMode="fit" [resizableColumns]="true"  scrollHeight="150px"  frozenWidth="150px"  [frozenColumns]="frozenCols">
     <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
             <ng-container>
@@ -14,59 +14,44 @@
             </ng-container>
         </colgroup>
     </ng-template>
-    <ng-template pTemplate="frozenheader">
+    <ng-template pTemplate="frozenheader" let-columns>
         <tr>
-            <th style="width: 100px">Year</th>
-            <th style="width: 100px">Brand</th>
+         
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="frozenbody" let-record>
-        <tr>
-            <td>{{record.year}}</td>
+        <tr  >
+            <td >{{record.year}}</td>
             <td>{{record.brand}}</td>
         </tr>
     </ng-template>
-    <ng-template pTemplate="header">
-            <tr>
-            <th>Color</th>
-            <th>Vin 3</th>
-            <th>Color 4</th>
-            <th>Color</th>
-            <th>Vin 3</th>
-            <th>Color 4</th>
-            <th>Color</th>
-            <th>Vin 3</th>
-            <th>Color 4</th>
-            <th>Color</th>
-            <th>Vin 3</th>
-            <th>Color 4</th>
-            <th>Color</th>
-            <th>Vin 3</th>
-            <th>Color 4</th>
-            <th>Color</th>
-           
+  
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <!-- procude some more rows (without data) -->
+        <tr >
+    
+          <!-- static columns should not be editable -->
+         
+    
+          <!-- scrollable columns should be editable -->
+        
+          <td *ngFor="let col of columns"  >
+            {{rowData[col.field]}}
+          </td>
+      
         </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-record>
-        <tr>
-            <td>{{record.color}}</td>
-            <td>{{record.vin}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.vin}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.vin}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.vin}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.vin}}</td>
-            <td>{{record.color}}</td>
-            <td>{{record.color}}</td>
-             
-        </tr>
-    </ng-template>
+        </ng-template>
+
+   
 </p-table>
  
